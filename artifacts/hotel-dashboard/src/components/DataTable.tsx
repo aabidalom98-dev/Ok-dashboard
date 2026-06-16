@@ -163,7 +163,7 @@ export function DataTable() {
                   <tr key={i} className={`hover:bg-muted/20 transition-colors ${i % 2 === 0 ? '' : 'bg-muted/10'}`} data-testid={`row-booking-${row.booking_id}`}>
                     {COLUMNS.map(col => (
                       <td key={col.key} className="px-4 py-2.5 whitespace-nowrap">
-                        {col.render ? col.render((row as any)[col.key]) : String((row as any)[col.key] ?? '')}
+                        {col.render ? col.render((row as any)[col.key] as never) : String((row as any)[col.key] ?? '')}
                       </td>
                     ))}
                   </tr>
